@@ -1,4 +1,5 @@
 package orangehrm.user;
+//import thu vien
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,8 +13,12 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Login01 {
+//import interface/class tu package khac
+import javaSDET.Topic_01_Keywords;
+
+public class Login_01_DRY {
     private WebDriver driver;
+    private Topic_01_Keywords topic_01_keywords;
 
     @BeforeClass
     public void beforeClass() {
