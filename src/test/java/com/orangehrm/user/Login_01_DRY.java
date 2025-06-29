@@ -56,7 +56,7 @@ public class Login_01_DRY {
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys("admin1234");
         driver.findElement(By.cssSelector("button.orangehrm-login-button")).click();
 
-        Assert.assertEquals(driver.findElement(By.cssSelector(".orangehrm-login-error p.oxd-alert-content-text")).getText(), "Invalid credentials");
+        Assert.assertEquals(driver.findElement(By.xpath("//div[@class='orangehrm-login-error']//p[contains(@class, 'oxd-alert-content-text')]")).getText(), "Invalid credentials");
 
     }
 

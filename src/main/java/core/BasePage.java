@@ -35,6 +35,12 @@ public class BasePage {
 //        Nếu như có return dữ liệu thì sẽ khớp vs kiểu dữ liệu ở số 2
 //        Nếu như có return thì nó là cái step cuối cùng
 
+    //ham khoi tao co nhiem vu lay ra Instance chinh basepage nay
+    // Mot bien hoac 1 ham co the goi truc tiep tu pham vi class
+    public static BasePage getInstance() {
+        return new BasePage();
+    }
+
     //Viết 1 hàm getText của 1 element bất kì
     public void openPageURL(WebDriver driver, String url) {
         driver.get(url);
@@ -347,32 +353,36 @@ public class BasePage {
     }
 
 //    WAIT
-    public void waitElementVisible(WebDriver driver, String locator) {
-        new WebDriverWait(driver, Duration.ofSeconds(LONG_TIME_OUT)).until(ExpectedConditions.visibilityOfElementLocated(getByXpath(locator)));
+    public WebElement waitElementVisible(WebDriver driver, String locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(LONG_TIME_OUT)).until(ExpectedConditions.visibilityOfElementLocated(getByXpath(locator)));
     }
 
-    public void waitListElementVisible(WebDriver driver, String locator) {
-        new WebDriverWait(driver, Duration.ofSeconds(LONG_TIME_OUT)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getByXpath(locator)));
+    public List<WebElement> waitListElementVisible(WebDriver driver, String locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(LONG_TIME_OUT)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getByXpath(locator)));
     }
 
-    public void waitElementSelected(WebDriver driver, String locator) {
-        new WebDriverWait(driver, Duration.ofSeconds(LONG_TIME_OUT)).until(ExpectedConditions.elementToBeSelected(getByXpath(locator)));
+    public boolean waitElementSelected(WebDriver driver, String locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(LONG_TIME_OUT)).until(ExpectedConditions.elementToBeSelected(getByXpath(locator)));
     }
 
-    public void waitElementClickable(WebDriver driver, String locator) {
-        new WebDriverWait(driver, Duration.ofSeconds(LONG_TIME_OUT)).until(ExpectedConditions.elementToBeClickable(getByXpath(locator)));
+    public WebElement waitElementClickable(WebDriver driver, String locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(LONG_TIME_OUT)).until(ExpectedConditions.elementToBeClickable(getByXpath(locator)));
     }
 
-    public void waitElementInVisible(WebDriver driver, String locator) {
-        new WebDriverWait(driver, Duration.ofSeconds(LONG_TIME_OUT)).until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(locator)));
+    public boolean waitElementInVisible(WebDriver driver, String locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(LONG_TIME_OUT)).until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(locator)));
     }
 
-    public void waitListElementInVisible(WebDriver driver, String locator) {
-        new WebDriverWait(driver, Duration.ofSeconds(LONG_TIME_OUT)).until(ExpectedConditions.invisibilityOfAllElements(getListWebElement(driver, locator)));
+    public boolean waitListElementInVisible(WebDriver driver, String locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(LONG_TIME_OUT)).until(ExpectedConditions.invisibilityOfAllElements(getListWebElement(driver, locator)));
     }
 
-    public void waitListElementPresence(WebDriver driver, String locator) {
-        new WebDriverWait(driver, Duration.ofSeconds(LONG_TIME_OUT)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByXpath(locator)));
+    public WebElement waitElementPresence(WebDriver driver, String locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(LONG_TIME_OUT)).until(ExpectedConditions.presenceOfElementLocated(getByXpath(locator)));
+    }
+
+    public List<WebElement> waitListElementPresence(WebDriver driver, String locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(LONG_TIME_OUT)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByXpath(locator)));
     }
 
 
