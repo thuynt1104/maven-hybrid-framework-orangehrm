@@ -1,35 +1,32 @@
-package com.orangehrm.user;
+package com.orangehrm;
 //import thu vien
 
 import core.BasePage;
+import core.BaseTest;
 import javaSDET.Topic_01_Keywords;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Login_02_BasePage_1_Initial {
+public class Login_03_Multiple_Browser extends BaseTest {
     private WebDriver driver;
-    private Topic_01_Keywords topic_01_keywords;
     private BasePage basePage;
-    private String appUrl = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+    private String appUrl;
 
-
+    @Parameters({"appUrl","browser"})
     @BeforeClass
-    public void beforeClass() {
-        driver = new FirefoxDriver();
-        basePage = new BasePage();
-
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+    public void beforeClass(String appURL, String browserName) {
+        this.appUrl = appURL;
+        basePage = BasePage.getInstance();
+        driver = getBrowserDriver(appURL, browserName);
     }
 
     @Test
@@ -58,6 +55,7 @@ public class Login_02_BasePage_1_Initial {
     public void Login_03_Invalid_Password() {
         basePage.openPageURL(driver, appUrl);
         basePage.sendKeysToElement(driver,"//input[@name='username']", "Admin");
+        basePage.sendKeysToElement(driver,"//input[@name='password']", "admin1234");
         basePage.sendKeysToElement(driver,"//input[@name='password']", "admin1234");
         basePage.clickToElement(driver,"//button[contains(@class,'orangehrm-login-button')]");
 

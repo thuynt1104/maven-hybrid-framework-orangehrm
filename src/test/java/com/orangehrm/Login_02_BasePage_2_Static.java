@@ -1,4 +1,4 @@
-package com.orangehrm.user;
+package com.orangehrm;
 //import thu vien
 
 import core.BasePage;
