@@ -1,3 +1,4 @@
+
 package javaSDET;
 
 import org.openqa.selenium.WebDriver;
@@ -13,18 +14,18 @@ public class Topic_01_Keywords extends Topic_06 implements Topic_02{
     //cho phep ke thua
 
     //Data type
-     String a = "a"; //char
-     byte bNumber = 10;
-     short sNumber = 11;
-     int iNumber = 12;
-     long lNumber = 13;
-     float fNumber = 14.99F;
-     double dNumber = 15.99D;
-     boolean bBoolean = true;
+    String a = "a"; //char
+    byte bNumber = 10;
+    short sNumber = 11;
+    int iNumber = 12;
+    long lNumber = 13;
+    float fNumber = 14.99F;
+    double dNumber = 15.99D;
+    boolean bBoolean = true;
 
-     String fullName = null;
+    String fullName = null;
 
-     //Asset Modifier
+    //Asset Modifier
 
     // Variable
     private String studentName = "Students";
