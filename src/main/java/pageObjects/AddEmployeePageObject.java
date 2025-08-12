@@ -3,6 +3,7 @@ package pageObjects;
 import core.BasePage;
 import org.openqa.selenium.WebDriver;
 import pageUIs.AddEmployeePageUI;
+import pageUIs.BasePageUI;
 
 public class AddEmployeePageObject extends BasePage {
     private WebDriver driver;
@@ -25,8 +26,11 @@ public class AddEmployeePageObject extends BasePage {
         return getElementDOMProperty(driver, AddEmployeePageUI.ID_TEXTBOX, "value");
     }
 
-    public void clickToSaveButton() {
+    public PersonalDetailPageObject clickToSaveButton() {
         waitElementClickable(driver, AddEmployeePageUI.SAVE_BUTTON);
         clickToElement(driver, AddEmployeePageUI.SAVE_BUTTON);
+        waitListElementInVisible(driver, AddEmployeePageUI.SPINNER_ICON);
+//        return PageGeneratorManager.getPersonalDetailPage(driver);
+        return PageGeneratorGeneric.getPage(PersonalDetailPageObject.class, driver);
     }
 }
