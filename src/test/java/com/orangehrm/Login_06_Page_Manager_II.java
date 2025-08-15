@@ -60,7 +60,7 @@ public class Login_06_Page_Manager_II extends BaseTest {
 
     @Test
     public void Employee_02_Contact_Detail() {
-        contactDetailPage = personalDetailPage.openContactDetailPage();
+        contactDetailPage = personalDetailPage.openContactDetailPage(driver);
     }
 
     @AfterClass

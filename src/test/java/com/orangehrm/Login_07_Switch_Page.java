@@ -9,7 +9,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.*;
 
-public class Login_06_Page_Manager_IV extends BaseTest {
+public class Login_07_Switch_Page extends BaseTest {
 
     @Parameters({"appUrl","browser"})
     @BeforeClass
@@ -59,8 +59,21 @@ public class Login_06_Page_Manager_IV extends BaseTest {
     }
 
     @Test
-    public void Employee_02_Contact_Detail() {
+    public void Employee_02_Switch_Page() {
+        //Từ personal qua contact
         contactDetailPage = personalDetailPage.openContactDetailPage(driver);
+        //Từ Contact qua Job
+        jobPage = contactDetailPage.openJobPage(driver);
+        //Từ Job qua Dependent
+        dependentsPage = jobPage.openDenpendentsPage(driver);
+        //Từ Dependent qua Personal
+        personalDetailPage = dependentsPage.openPersonalDetailPage(driver);
+        //Từ Personal qua Job
+        jobPage = personalDetailPage.openJobPage(driver);
+
+        contactDetailPage = jobPage.openContactDetailPage(driver);
+
+        dependentsPage = contactDetailPage.openDenpendentsPage(driver);
     }
 
     @AfterClass
@@ -77,6 +90,8 @@ public class Login_06_Page_Manager_IV extends BaseTest {
     private PersonalDetailPageObject personalDetailPage;
     private ContactDetailPageObject contactDetailPage;
 //    private PageGeneratorManager pageGenerator;
+    private JobPageObject jobPage;
+    private DependentsPageObject dependentsPage;
     private String employeeID, adminUser, adminPassword, employeeFirstName, employeeLastName;
 
 }
