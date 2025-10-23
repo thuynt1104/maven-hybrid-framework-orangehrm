@@ -1,6 +1,8 @@
 package pageObjects;
 
 import org.openqa.selenium.WebDriver;
+import pageObjects.editNavigation.ContactDetailPageObject;
+import pageObjects.editNavigation.PersonalDetailPageObject;
 
 public class PageGeneratorManager {
 

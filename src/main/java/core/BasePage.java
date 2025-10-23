@@ -7,10 +7,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.*;
+import pageObjects.editNavigation.ContactDetailPageObject;
+import pageObjects.editNavigation.DependentsPageObject;
+import pageObjects.editNavigation.JobPageObject;
+import pageObjects.editNavigation.PersonalDetailPageObject;
 import pageUIs.BasePageUI;
-import pageUIs.DependentsPageUI;
-import pageUIs.JobPageUI;
-import pageUIs.PersonalDetailPageUI;
 
 import java.time.Duration;
 import java.util.List;
@@ -393,29 +394,4 @@ public class BasePage {
     public boolean isLoadingSpinnerDisappear(WebDriver driver) {
         return waitListElementInVisible(driver, BasePageUI.SPINNER_ICON);
     }
-
-    //9 hàm cho 9Page và không trùng lặp
-    public ContactDetailPageObject openContactDetailPage(WebDriver driver) {
-        waitElementVisible(driver, BasePageUI.CONTACT_DETAIL_LINK);
-        clickToElement(driver, BasePageUI.CONTACT_DETAIL_LINK);
-        return PageGeneratorGeneric.getPage(ContactDetailPageObject.class, driver);
-    }
-    public JobPageObject openJobPage(WebDriver driver) {
-        waitElementClickable(driver, BasePageUI.JOB_LINK);
-        clickToElement(driver, BasePageUI.JOB_LINK);
-        return PageGeneratorGeneric.getPage(JobPageObject.class, driver);
-    }
-
-    public PersonalDetailPageObject openPersonalDetailPage(WebDriver driver) {
-        waitElementClickable(driver, BasePageUI.PERSONAL_DETAILS_LINK);
-        clickToElement(driver, BasePageUI.PERSONAL_DETAILS_LINK);
-        return PageGeneratorGeneric.getPage(PersonalDetailPageObject.class, driver);
-    }
-
-    public DependentsPageObject openDenpendentsPage(WebDriver driver) {
-        waitElementClickable(driver, BasePageUI.DEPENDENTS_LINK);
-        clickToElement(driver, BasePageUI.DEPENDENTS_LINK);
-        return PageGeneratorGeneric.getPage(DependentsPageObject.class, driver);
-    }
-
 }

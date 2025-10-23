@@ -1,12 +1,12 @@
-package pageObjects;
+package pageObjects.editNavigation;
 
 import core.BasePage;
 import org.openqa.selenium.WebDriver;
-import pageUIs.DependentsPageUI;
 
-public class DependentsPageObject extends BasePage {
+public class DependentsPageObject extends EditNavigatorPageObject {
     private WebDriver driver;
     public DependentsPageObject(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 

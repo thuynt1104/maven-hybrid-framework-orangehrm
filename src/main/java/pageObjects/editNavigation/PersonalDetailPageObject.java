@@ -1,12 +1,13 @@
-package pageObjects;
+package pageObjects.editNavigation;
 
 import core.BasePage;
 import org.openqa.selenium.WebDriver;
-import pageUIs.PersonalDetailPageUI;
+import pageUIs.editNavigation.PersonalDetailPageUI;
 
-public class PersonalDetailPageObject extends BasePage {
+public class PersonalDetailPageObject extends EditNavigatorPageObject {
     private WebDriver driver;
     public PersonalDetailPageObject(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
     public String getFirstNameTextboxValue() {

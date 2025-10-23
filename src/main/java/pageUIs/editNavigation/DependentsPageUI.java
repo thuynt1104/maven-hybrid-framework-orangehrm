@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.editNavigation;
 
 public class DependentsPageUI {
 

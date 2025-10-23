@@ -1,6 +1,5 @@
 package com.orangehrm;
 
-import core.BasePage;
 import core.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -9,6 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.*;
+import pageObjects.editNavigation.PersonalDetailPageObject;
 
 public class Login_04_Page_Object extends BaseTest {
 
